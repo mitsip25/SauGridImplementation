@@ -41,25 +41,27 @@ public class BasePage {
 	 * @return driver
 	 * @throws MalformedURLException 
 	 */
-	public RemoteWebDriver init_driver(Properties prop) throws MalformedURLException {
-
-//		caps = new DesiredCapabilities();
-//		caps.setCapability("browserName", browser);
-		//String browser = prop.getProperty("browser");
+	public RemoteWebDriver init_driver(String browser) throws MalformedURLException {
+		
+		System.out.println("browser name is: "+ browser);
+		caps = new DesiredCapabilities();
+//		String browser = prop.getProperty("browser");
+		caps.setCapability("browserName", browser);
+		
 		String url = prop.getProperty("url");
 
-//		if (browser.equals("chrome")) {
-//			//WebDriverManager.chromedriver().setup();
-//			//driver = new ChromeDriver();
-//			//tldriver.set(new ChromeDriver());
-//			tldriver.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), caps));
-//		} else if (browser.equals("firefox")) {
-//			WebDriverManager.firefoxdriver().setup();
-//			//driver = new FirefoxDriver();
-//			tldriver.set(new FirefoxDriver());
-//		} else {
-//			System.out.println("please define the proper browser value....");
-//		}
+		if (browser.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			//driver = new ChromeDriver();
+			//tldriver.set(new ChromeDriver());
+			tldriver.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), caps));
+		} else if (browser.equals("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			//driver = new FirefoxDriver();
+			tldriver.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), caps));
+		} else {
+			System.out.println("please define the proper browser value....");
+		}
 		
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();

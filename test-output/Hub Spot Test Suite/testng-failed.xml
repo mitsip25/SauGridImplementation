@@ -6,6 +6,7 @@
     <listener class-name="com.qa.hubspot.listeners.TestAllureListener"/>
   </listeners>
   <test thread-count="5" name="hub spot regression Test(failed)">
+    <parameter name="browser" value=""/>
     <classes>
       <class name="com.qa.hubspot.tests.LoginPageTest">
         <methods>

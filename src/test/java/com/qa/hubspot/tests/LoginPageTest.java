@@ -32,14 +32,22 @@ public class LoginPageTest {
 	@BeforeMethod
 	@Parameters(value={"browser"})
 	public void setUp(String browser) throws MalformedURLException {
-		caps = new DesiredCapabilities();
-		caps.setCapability("browserName", browser);
+//		caps = new DesiredCapabilities();
+//		caps.setCapability("browserName", browser);
 		basePage = new BasePage();
 		prop = basePage.init_properties();
-		BasePage.tldriver.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), caps));
+//		BasePage.tldriver.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), caps));
 		
-		BasePage.getDriver().get(prop.getProperty("url"));
-		//driver.get(prop.getProperty("url"));
+		String browserName=null;
+		
+		if(browser.equals(null) || browser.equals("") || browser.isEmpty()){
+			browserName = prop.getProperty("browser");
+		}else{
+			browserName=browser;
+		}
+		driver  = basePage.init_driver(browserName);
+//		BasePage.getDriver().get(prop.getProperty("url"));
+		driver.get(prop.getProperty("url"));
 		loginPage = new LoginPage(driver);
 	}
 
