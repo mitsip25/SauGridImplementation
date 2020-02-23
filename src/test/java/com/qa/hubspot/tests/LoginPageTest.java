@@ -38,7 +38,7 @@ public class LoginPageTest {
 		prop = basePage.init_properties();
 		BasePage.tldriver.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), caps));
 		
-		driver = BasePage.getDriver().get(prop.getProperty("url"));
+		BasePage.getDriver().get(prop.getProperty("url"));
 		//driver.get(prop.getProperty("url"));
 		loginPage = new LoginPage(driver);
 	}
