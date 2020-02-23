@@ -1,11 +1,16 @@
 package com.qa.hubspot.tests;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qa.hubspot.base.BasePage;
@@ -20,14 +25,21 @@ public class LoginPageTest {
 
 	BasePage basePage;
 	Properties prop;
-	WebDriver driver;
+	RemoteWebDriver driver;
 	LoginPage loginPage;
+	DesiredCapabilities caps;
 
 	@BeforeMethod
-	public void setUp() {
+	@Parameters(value={"browser"})
+	public void setUp(String browser) throws MalformedURLException {
+		caps = new DesiredCapabilities();
+		caps.setCapability("browserName", browser);
 		basePage = new BasePage();
 		prop = basePage.init_properties();
-		driver = basePage.init_driver(prop);
+		BasePage.tldriver.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), caps));
+		
+		driver = BasePage.getDriver().get(prop.getProperty("url"));
+		//driver.get(prop.getProperty("url"));
 		loginPage = new LoginPage(driver);
 	}
 

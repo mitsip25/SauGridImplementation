@@ -6,7 +6,7 @@
 	<test name="hub spot regression Test">
 		<classes>
 			<class name="com.qa.hubspot.tests.LoginPageTest" />
-			<class name="com.qa.hubspot.tests.HomePageTest" />
+			<!-- <class name="com.qa.hubspot.tests.HomePageTest" /> -->
 		</classes>
 	</test>
 </suite>

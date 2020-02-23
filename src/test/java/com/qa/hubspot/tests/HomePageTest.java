@@ -25,8 +25,9 @@ public class HomePageTest {
 	public void setUp() {
 		basePage = new BasePage();
 		prop = basePage.init_properties();
-		driver = basePage.init_driver(prop);
-		loginPage = new LoginPage(driver);
+//		driver = basePage.init_driver(prop);
+		driver.get(prop.getProperty("url"));
+//		loginPage = new LoginPage(driver);
 		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 

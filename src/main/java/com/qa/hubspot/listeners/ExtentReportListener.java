@@ -99,7 +99,7 @@ public class ExtentReportListener implements ITestListener {
 //			System.err
 //					.println("Exception thrown while updating test fail status " + Arrays.toString(e.getStackTrace()));
 //		}
-		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
+//		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 	}
 
 	public synchronized void onTestSkipped(ITestResult result) {
@@ -111,7 +111,7 @@ public class ExtentReportListener implements ITestListener {
 //			System.err
 //					.println("Exception thrown while updating test skip status " + Arrays.toString(e.getStackTrace()));
 //		}
-		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
+//		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 	}
 
 	public synchronized void onTestFailedButWithinSuccessPercentage(ITestResult result) {

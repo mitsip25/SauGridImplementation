@@ -4,7 +4,6 @@
   <listeners>
     <listener class-name="com.qa.hubspot.listeners.ExtentReportListener"/>
     <listener class-name="com.qa.hubspot.listeners.TestAllureListener"/>
-    <listener class-name="com.qa.hubspot.listeners.pdfListener"/>
   </listeners>
   <test thread-count="5" name="hub spot regression Test(failed)">
     <classes>
@@ -13,6 +12,8 @@
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="loginPageTitleTest"/>
+          <include name="loginTest"/>
+          <include name="signUpLinkTest"/>
         </methods>
       </class> <!-- com.qa.hubspot.tests.LoginPageTest -->
     </classes>

@@ -2,6 +2,7 @@ package com.qa.hubspot.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.qa.hubspot.base.BasePage;
 import com.qa.hubspot.util.Constants;
@@ -11,7 +12,7 @@ import io.qameta.allure.Step;
 
 public class LoginPage extends BasePage {
 
-	WebDriver driver;
+	RemoteWebDriver driver;
 	ElementActions elementActions;
 
 	// 1. define OR/Page Objects: using By locator:
@@ -21,7 +22,7 @@ public class LoginPage extends BasePage {
 	By signUpLink = By.linkText("Sign up");
 
 	// 2. define a constructor:
-	public LoginPage(WebDriver driver) {
+	public LoginPage(RemoteWebDriver driver) {
 		this.driver = driver;
 		elementActions = new ElementActions(this.driver);
 	}
